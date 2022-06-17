@@ -2,10 +2,10 @@
  * SSにGASメニューをつけるためのサンプルコード
  */
 function onOpenSample () {
-  SpreadsheetApp.getActive().addMenu('menuName', [
-    {
-      name: 'itemName',
-      functionName: 'targetFunctionName'
-    }
-  ])
+  const ui = SpreadsheetApp.getUi()
+  ui.createMenu('Custom Menu')
+    .addItem('First item', 'menuItem1')
+    .addSeparator()
+    .addSubMenu(ui.createMenu('Sub-menu').addItem('Second item', 'menuItem2'))
+    .addToUi()
 }
